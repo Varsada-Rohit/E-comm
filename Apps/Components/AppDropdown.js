@@ -6,8 +6,10 @@ function AppDropdown({data, ...otherPerameters}) {
   return (
     <View style={styles.container}>
       <Picker style={styles.dropdown} {...otherPerameters}>
-        {data.map(obj => {
-          return <Picker.Item label={obj.label} value={obj.value} />;
+        {data.map((obj, index) => {
+          return (
+            <Picker.Item label={obj.label} value={obj.value} key={index} />
+          );
         })}
       </Picker>
     </View>

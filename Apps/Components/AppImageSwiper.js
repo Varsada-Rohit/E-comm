@@ -10,7 +10,7 @@ function AppImageSwiper({
 }) {
   return (
     <View style={[styles.container, swiperStyle, {height: height}]}>
-      <Swiper {...otherPerameters}>
+      <Swiper {...otherPerameters} key={data.length}>
         {data.map((img, index) => {
           return (
             <View key={index}>

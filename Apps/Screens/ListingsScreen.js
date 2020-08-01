@@ -64,7 +64,7 @@ function ListingsScreen({navigation}) {
   };
 
   onProduct = item => {
-    navigation.navigate('Listing', {item: item});
+    navigation.navigate('ListingDetail', {item: item});
   };
 
   return (
