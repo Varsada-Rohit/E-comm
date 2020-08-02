@@ -21,10 +21,10 @@ function ListingsScreen({navigation}) {
     getProducts();
   }, []);
 
-  getProducts = async () => {
+  const getProducts = async () => {
     let allProducts = [];
     await ref
-      .limit(1)
+      .limit(4)
       .get()
       .then(snapshot => {
         snapshot.forEach(product => {
@@ -46,7 +46,7 @@ function ListingsScreen({navigation}) {
     let allProducts = [];
     const moreproducts = await ref
       .startAfter(lastDoc)
-      .limit(1)
+      .limit(4)
       .get()
       .then(snapshot => {
         snapshot.forEach(product => {

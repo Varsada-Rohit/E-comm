@@ -9,10 +9,14 @@ export default (useAuth = () => {
     setuser(token);
   };
 
+  const register = token => {
+    setuser(token);
+  };
+
   const logout = () => {
     auth().signOut();
     setuser('');
   };
 
-  return {user, setuser, login, logout};
+  return {user, setuser, login, logout, register};
 });

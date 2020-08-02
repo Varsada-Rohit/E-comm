@@ -23,13 +23,13 @@ const menuItems = [
   },
 ];
 const AccountsScreen = () => {
-  const {logout} = useAuth();
+  const {logout, user} = useAuth();
   return (
     <View style={styles.screen}>
       <View style={styles.container}>
         <ListItem
-          title="Tanay Van"
-          subTitle="tanayvan258@gmail.com"
+          title={user.displayName}
+          subTitle={user.email}
           image={require('../assets/avatar.jpg')}
         />
       </View>

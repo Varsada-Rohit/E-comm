@@ -2,17 +2,18 @@ import auth from '@react-native-firebase/auth';
 
 const register = async regInfo => {
   try {
-    const result = await auth().createUserWithEmailAndPassword(
+    const usertoken = await auth().createUserWithEmailAndPassword(
       regInfo.email,
       regInfo.password,
     );
-    await result.user.updateProfile({displayName: regInfo.dname});
+    await usertoken.user.updateProfile({displayName: regInfo.dname});
 
-    return auth().currentUser;
+    return (result = {user: auth().currentUser});
   } catch (error) {
     if (error.code === 'auth/email-already-in-use') {
       return (result = {error: 'Email already in use '});
     } else {
+      console.log(error);
       return (result = {error: 'something went wrong try again'});
     }
   }
